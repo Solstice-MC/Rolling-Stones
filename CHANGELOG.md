@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org)
 
 ## [Unreleased]
 
+- Trying to sway the machine spirit into properly building the mod
+
 ## 0.3.2
 
 - New Midas Smithing Stone, which applies great upgrades but turns your item into gold
