@@ -7,7 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org)
 
 ## [Unreleased]
 
-- Trying to sway the machine spirit into properly building the mod
+## 0.4.0
+
+- Successfully swayed the machine spirit into properly building the mod
+- This fixes the Strongbox item model
 
 ## 0.3.2
 
