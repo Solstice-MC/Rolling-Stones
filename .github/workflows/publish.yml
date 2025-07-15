@@ -22,7 +22,7 @@ jobs:
             - name: Run datagen
               run: ./gradlew runDatagen
             - name: Build project
-              run: ./gradlew build
+              run: ./gradlew clean build
             - name: Publish project
               uses: Kir-Antipov/mc-publish@v3.3
               with:
