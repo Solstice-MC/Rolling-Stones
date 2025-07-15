@@ -3,8 +3,8 @@ on:
         types: [published]
 
 jobs:
-    test:
-        runs-on: ubuntu-22.04
+    publish:
+        runs-on: ubuntu-latest
         permissions:
             contents: write
         steps:
@@ -21,6 +21,8 @@ jobs:
               run: chmod +x ./gradlew
             - name: Run datagen
               run: ./gradlew runDatagen
+            - name: Delete duplicates
+              run: find src/main/resources -type f | while read -r file; do rm -f -- "src/main/generated/${file#src/main/resources/}"; done
             - name: Build project
               run: ./gradlew clean build
             - name: Publish project
@@ -39,3 +41,6 @@ jobs:
 
                   github-tag: "${{ github.event.release.tag_name }}"
                   github-token: "${{ secrets.GITHUB_TOKEN }}"
+                  modrinth-id: "${{ vars.MODRINTH_ID }}"
+                  modrinth-token: "${{ secrets.MODRINTH_TOKEN }}"
+                  modrinth-version-type: ${{ github.event.release.prerelease && 'beta' || 'release' }}
