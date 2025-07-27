@@ -80,6 +80,15 @@ public class RollingRecipeGenerator extends AdvancedRecipeProvider {
 			)))
 			.offerTo(exporter);
 
+		ShapedRecipeJsonBuilder
+			.create(RecipeCategory.COMBAT, RollingItems.BAMBOO_SWORD)
+			.input('#', Items.BAMBOO)
+			.pattern("#")
+			.pattern("#")
+			.pattern("#")
+			.criterion("has_bamboo", conditionsFromItem(Items.BAMBOO))
+			.offerTo(exporter);
+
 		Ingredient base = Ingredient.fromTag(RollingTags.UPGRADABLE);
 		SMITHING_STONE_DATA.forEach(data -> {
 			Item item = data.item;

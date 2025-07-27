@@ -1,9 +1,11 @@
 package org.solstice.rollingStones.registry;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.component.type.AttributeModifierSlot;
+import net.minecraft.component.type.AttributeModifiersComponent;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -21,6 +23,23 @@ import java.util.function.Function;
 public class RollingItems {
 
 	public static void init() {}
+
+	public static final AttributeModifiersComponent BAMBOO_SWORD_ATTRIBUTES = AttributeModifiersComponent.builder()
+		.add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+			new EntityAttributeModifier(Item.BASE_ATTACK_DAMAGE_MODIFIER_ID, -1, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), AttributeModifierSlot.MAINHAND
+//			new EntityAttributeModifier(Item.BASE_ATTACK_DAMAGE_MODIFIER_ID, -2, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.MAINHAND
+//			new EntityAttributeModifier(Item.BASE_ATTACK_DAMAGE_MODIFIER_ID, -0.999999999D, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.MAINHAND
+		)
+		.add(EntityAttributes.GENERIC_ATTACK_SPEED,
+			 new EntityAttributeModifier(Item.BASE_ATTACK_SPEED_MODIFIER_ID, -2.4D, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.MAINHAND
+		)
+		.build();
+
+	public static final Item BAMBOO_SWORD = register("bamboo_sword",
+		settings -> new SwordItem(ToolMaterials.WOOD, settings),
+		new Item.Settings()
+			.attributeModifiers(BAMBOO_SWORD_ATTRIBUTES)
+	);
 
     public static final Item SIMPLE_SMITHING_STONE = register("simple_smithing_stone",
 		SmithingStoneItem::new,

@@ -18,8 +18,15 @@ import java.util.stream.Stream;
 public class RollingItemGroups {
 
 	public static void init() {
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(RollingItemGroups::addStrongbox);
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(RollingItemGroups::addStrongbox);
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries ->
+			entries.addBefore(Items.WOODEN_SWORD, RollingItems.BAMBOO_SWORD)
+		);
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries ->
+			entries.addAfter(Items.BARREL, RollingBlocks.STRONGBOX)
+		);
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(entries ->
+			entries.addAfter(Items.BARREL, RollingBlocks.STRONGBOX)
+		);
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(RollingItemGroups::addSmithingStones);
 	}
 
@@ -35,10 +42,6 @@ public class RollingItemGroups {
 			addMaxTierSmithingStones(entries, registry);
 			addAllTierSmithingStones(entries, registry);
 		});
-	}
-
-	public static void addStrongbox(FabricItemGroupEntries entries) {
-		entries.addAfter(Items.BARREL, RollingBlocks.STRONGBOX);
 	}
 
 	private static void addMaxTierSmithingStones(ItemGroup.Entries entries, RegistryWrapper<Upgrade> registryWrapper) {

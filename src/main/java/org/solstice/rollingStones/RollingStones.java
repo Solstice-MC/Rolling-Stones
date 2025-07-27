@@ -21,6 +21,8 @@ public class RollingStones implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		Test.init();
+
 		RollingRegistryKeys.init();
 		RollingRegistries.init();
 		RollingAttributes.init();

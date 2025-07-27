@@ -12,7 +12,12 @@
 		"ItemStackMixin",
 		"LivingEntityMixin",
 		"MiningToolItemMixin",
-		"SmithingScreenHandlerMixin"
+		"PiglinBrainMixin",
+		"SmithingScreenHandlerMixin",
+		"test.BambooBlockMixin",
+		"test.ItemStackMixin",
+		"test.MobEntityMixin",
+		"test.PlayerEntityMixin"
 	],
 	"client": [
 		"client.AbstractClientPlayerEntityMixin",

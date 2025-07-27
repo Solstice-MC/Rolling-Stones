@@ -3,9 +3,8 @@
 		"minecraft:leather_boots",
 		"minecraft:chainmail_boots",
 		"minecraft:iron_boots",
-		"minecraft:gold_boots",
+		"minecraft:golden_boots",
 		"minecraft:diamond_boots",
-		"minecraft:netherite_boots",
-		"minecraft:turtle_boots"
+		"minecraft:netherite_boots"
 	]
 }

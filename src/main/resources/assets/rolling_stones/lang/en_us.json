@@ -1,4 +1,25 @@
 {
+	"tag.item.rolling_stones.upgradable": "Upgradable",
+
+	"tag.item.minecraft.helmets": "Helmets",
+	"tag.item.minecraft.chestplates": "Chestplates",
+	"tag.item.minecraft.leggings": "Leggings",
+	"tag.item.minecraft.boots": "Boots",
+
+	"tag.item.minecraft.equipment.leather": "Leather Equipment",
+	"tag.item.minecraft.equipment.chainmail": "Chainmail Equipment",
+	"tag.item.minecraft.equipment.iron": "Iron Equipment",
+	"tag.item.minecraft.equipment.golden": "Golden Equipment",
+	"tag.item.minecraft.equipment.diamond": "Diamond Equipment",
+	"tag.item.minecraft.equipment.netherite": "Netherite Equipment",
+
+	"tag.item.minecraft.tools.wooden": "Wooden Tools",
+	"tag.item.minecraft.tools.stone": "Stone Tools",
+	"tag.item.minecraft.tools.iron": "Iron Tools",
+	"tag.item.minecraft.tools.golden": "Golden Tools",
+	"tag.item.minecraft.tools.diamond": "Diamond Tools",
+	"tag.item.minecraft.tools.netherite": "Netherite Tools",
+
 	"commands.upgrade.failed": "Nothing changed. Targets either have no item in their hands or the upgrade could not be applied",
 	"commands.upgrade.success.single": "Applied upgrade %s to %s's item",
 	"commands.upgrade.success.multiple": "Applied upgrade %s to %s entities",

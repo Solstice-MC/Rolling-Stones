@@ -1,0 +1,11 @@
+{
+	"variants": {
+		"axis=x": {
+			"model": "rolling_stones:block/rolling_stone",
+			"y": 90
+		},
+		"axis=z": {
+			"model": "rolling_stones:block/rolling_stone"
+		}
+	}
+}

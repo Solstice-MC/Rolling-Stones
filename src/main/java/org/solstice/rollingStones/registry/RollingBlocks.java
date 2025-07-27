@@ -4,6 +4,7 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.MapColor;
 import net.minecraft.block.enums.NoteBlockInstrument;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -13,6 +14,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import org.solstice.rollingStones.RollingStones;
+import org.solstice.rollingStones.content.block.RollingStoneBlock;
 import org.solstice.rollingStones.content.block.StrongboxBlock;
 
 import java.util.function.Function;
@@ -20,6 +22,16 @@ import java.util.function.Function;
 public class RollingBlocks {
 
 	public static void init() {}
+
+	public static final Block ROLLING_STONE = register("rolling_stone",
+		RollingStoneBlock::new,
+		AbstractBlock.Settings.create()
+			.requiresTool()
+			.strength(2.0F, 6.0F)
+			.mapColor(MapColor.IRON_GRAY)
+			.sounds(BlockSoundGroup.STONE)
+			.pistonBehavior(PistonBehavior.BLOCK)
+	);
 
 	public static final Block STRONGBOX = register("strongbox",
 		settings -> new StrongboxBlock(settings, () -> RollingBlockEntityTypes.STRONGBOX),
