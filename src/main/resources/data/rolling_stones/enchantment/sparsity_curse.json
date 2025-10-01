@@ -1,15 +1,18 @@
 {
-	"slots": [ "any" ],
-	"supported_items": "#minecraft:enchantable/durability",
 	"description": {
 		"translate": "enchantment.rolling_stones.sparsity_curse"
 	},
+
+	"supported_items": "#minecraft:enchantable/durability",
+	"slots": [
+		"hand"
+	],
 
 	"effects": {
 		"minecraft:equipment_drops": [{
 			"effect": {
 				"type": "minecraft:set",
-				"value": 0.01
+				"value": 0.1
 			},
 			"enchanted": "attacker",
 			"requirements": {

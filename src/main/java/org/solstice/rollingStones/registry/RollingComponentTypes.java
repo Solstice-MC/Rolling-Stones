@@ -8,6 +8,7 @@ import net.minecraft.network.codec.PacketCodecs;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import org.solstice.rollingStones.RollingStones;
+import org.solstice.rollingStones.content.component.ItemAbilityComponent;
 import org.solstice.rollingStones.content.item.component.ItemUpgradesComponent;
 
 public class RollingComponentTypes {
@@ -17,6 +18,8 @@ public class RollingComponentTypes {
     public static final ComponentType<ItemUpgradesComponent> UPGRADES = register("upgrades", ItemUpgradesComponent.CODEC, ItemUpgradesComponent.PACKET_CODEC);
     public static final ComponentType<ItemUpgradesComponent> STORED_UPGRADES = register("stored_upgrades", ItemUpgradesComponent.CODEC, ItemUpgradesComponent.PACKET_CODEC);
 	public static final ComponentType<Boolean> UPGRADE_GLINT_OVERRIDE = register("upgrade_glint_override", Codec.BOOL);
+
+	public static final ComponentType<ItemAbilityComponent> ABILITY = register("ability", ItemAbilityComponent.CODEC);
 
 	private static <T> ComponentType<T> register(String name, Codec<T> codec) {
 		return register(name, codec, PacketCodecs.registryCodec(codec));

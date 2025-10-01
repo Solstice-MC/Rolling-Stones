@@ -11,7 +11,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
 import org.solstice.rollingStones.content.upgrade.Upgrade;
@@ -19,22 +18,24 @@ import org.solstice.rollingStones.content.upgrade.UpgradeHelper;
 
 import java.util.Collection;
 
+import static net.minecraft.server.command.CommandManager.*;
+
 public class UpgradeCommand {
 
 	private static final SimpleCommandExceptionType FAILED_EXCEPTION = new SimpleCommandExceptionType(Text.translatable("commands.enchant.failed"));
 
 	public static void register(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess registryAccess) {
-		LiteralArgumentBuilder<ServerCommandSource> builder = CommandManager.literal("upgrade").requires((source) -> source.hasPermissionLevel(2));
+		LiteralArgumentBuilder<ServerCommandSource> builder = literal("upgrade").requires((source) -> source.hasPermissionLevel(2));
 
-		builder.then(CommandManager.argument("targets", EntityArgumentType.entities())
-			.then(CommandManager.argument("upgrade", UpgradeArgumentType.upgrade(registryAccess))
+		builder.then(argument("targets", EntityArgumentType.entities())
+			.then(argument("upgrade", UpgradeArgumentType.upgrade(registryAccess))
 				.executes(context -> applyUpgrade(
 					context.getSource(),
 					EntityArgumentType.getEntities(context, "targets"),
 					UpgradeArgumentType.getUpgrade(context, "upgrade")
 				)
 			)
-			.then(CommandManager.argument("level", IntegerArgumentType.integer(0))
+			.then(argument("level", IntegerArgumentType.integer(0))
 				.executes(context -> applyUpgrade(
 					context.getSource(),
 					EntityArgumentType.getEntities(context, "targets"),

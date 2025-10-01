@@ -1,4 +1,4 @@
-package org.solstice.rollingStones.mixin.test;
+package org.solstice.rollingStones.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;

@@ -22,12 +22,7 @@ public class UpgradedItemCriterion extends AbstractCriterion<UpgradedItemCriteri
 	}
 
 	public void trigger(ServerPlayerEntity player, ItemStack stack, Identifier recipeId) {
-		System.out.println("AAAAAaaaaaaaaaaaaAAAAAAAA?");
-		this.trigger(player, conditions -> {
-			var test = conditions.matches(stack, recipeId);
-			System.out.println(test);
-			return test;
-		});
+		this.trigger(player, conditions -> conditions.matches(stack, recipeId));
 	}
 
 	public record Conditions (

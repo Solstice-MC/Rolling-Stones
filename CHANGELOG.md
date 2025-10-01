@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org)
 
 ## [Unreleased]
 
+- Added Bamboo Sword, which deals no damage
+
 ## 0.4.0
 
 - Successfully swayed the machine spirit into properly building the mod

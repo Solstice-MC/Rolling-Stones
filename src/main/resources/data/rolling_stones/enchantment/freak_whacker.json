@@ -1,7 +1,7 @@
 {
 	"anvil_cost": 2,
 	"description": {
-		"translate": "enchantment.rolling_stones.weird_dude"
+		"translate": "enchantment.rolling_stones.freak_whacker"
 	},
 	"effects": {
 		"minecraft:damage": [

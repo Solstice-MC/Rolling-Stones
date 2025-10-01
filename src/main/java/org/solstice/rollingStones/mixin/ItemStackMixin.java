@@ -3,6 +3,8 @@ package org.solstice.rollingStones.mixin;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
@@ -10,6 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 import org.apache.commons.lang3.mutable.MutableFloat;
 import org.jetbrains.annotations.Nullable;
@@ -26,6 +29,9 @@ import java.util.function.Consumer;
 public abstract class ItemStackMixin {
 
 	@Shadow public abstract Item getItem();
+
+	@Shadow
+	public abstract int getDamage();
 
 	@WrapMethod(method = "getMaxDamage")
 	private int getMaxDamage(Operation<Integer> original) {
@@ -66,6 +72,28 @@ public abstract class ItemStackMixin {
 //		});
 
 		return result.get();
+	}
+
+	@WrapMethod(method = "appendAttributeModifierTooltip")
+	void shouldDisplayAttribute(Consumer<Text> textConsumer, PlayerEntity player, RegistryEntry<EntityAttribute> attribute, EntityAttributeModifier modifier, Operation<Void> original) {
+		if (player == null) return;
+
+		double totalValue = player.getAttributeValue(attribute) + modifier.value();
+		if (totalValue <= -0.001D || totalValue >= 0.001D)
+			original.call(textConsumer, player, attribute, modifier);
+	}
+
+	@WrapMethod(method = "setDamage")
+	public void preventCursedDamageIncrease(int damage, Operation<Void> original) {
+		boolean isCursed = EnchantmentHelper.hasAnyEnchantmentsWith(
+			(ItemStack)(Object)this,
+			RollingEnchantmentEffects.PREVENT_REPAIRING
+		);
+		int currentDamage = this.getDamage();
+
+		if (isCursed && damage > currentDamage) return;
+
+		original.call(damage);
 	}
 
 }

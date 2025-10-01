@@ -1,0 +1,62 @@
+{
+	"description": {
+		"translate": "enchantment.rolling_stones.withdrawing_curse"
+	},
+
+	"supported_items": "#minecraft:enchantable/durability",
+	"slots": [
+		"mainhand"
+	],
+
+	".effects": {
+		"minecraft:attributes": [
+			{
+				"attribute": "minecraft:player.block_interaction_range",
+				"id": "rolling_stones:enchantment.withdrawing_curse",
+				"operation": "add_value",
+				"amount": {
+					"type": "minecraft:linear",
+					"base": -0.75,
+					"per_level_above_first": -0.75
+				}
+			},
+			{
+				"attribute": "minecraft:player.entity_interaction_range",
+				"id": "rolling_stones:enchantment.withdrawing_curse",
+				"operation": "add_value",
+				"amount": {
+					"type": "minecraft:linear",
+					"base": -0.75,
+					"per_level_above_first": -0.75
+				}
+			}
+		]
+	},
+	"effects": {
+		"minecraft:attributes": [
+			{
+				"attribute": "minecraft:player.block_interaction_range",
+				"id": "rolling_stones:enchantment.withdrawing_curse",
+				"operation": "add_value",
+				"amount": {
+					"type": "minecraft:linear",
+					"base": -0.75,
+					"per_level_above_first": -0.75
+				}
+			}
+		]
+	},
+
+	"max_level": 1,
+	"anvil_cost": 8,
+	"weight": 1,
+
+	"max_cost": {
+		"base": 50,
+		"per_level_above_first": 0
+	},
+	"min_cost": {
+		"base": 25,
+		"per_level_above_first": 0
+	}
+}

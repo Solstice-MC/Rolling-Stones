@@ -21,8 +21,6 @@ public class RollingStones implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		Test.init();
-
 		RollingRegistryKeys.init();
 		RollingRegistries.init();
 		RollingAttributes.init();
@@ -43,6 +41,8 @@ public class RollingStones implements ModInitializer {
 		RollingSoundEvents.init();
 		RollingDamageSources.init();
 		RollingCommands.init();
+
+		RollingItemAbilities.init();
 
 		DefaultItemComponentEvents.MODIFY.register(RollingItemChanges::modifyItems);
 		RollingLootTableChanges.modifyVillagerTrades();

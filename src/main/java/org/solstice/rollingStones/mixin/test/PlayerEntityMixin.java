@@ -30,7 +30,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 			ordinal = 0
 		)
 	)
-	float storeDealtDamage (
+	float storeDealtDamage(
 		PlayerEntity instance,
 		Entity target,
 		float baseDamage,
@@ -47,7 +47,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 		at = @At("STORE"),
 		name = "g"
 	)
-	private float increaseDealtDamage (
+	private float increaseDealtDamage(
 		float damage,
 		@Share(value = "dealtDamage") LocalFloatRef dealtDamage
 	) {
@@ -63,7 +63,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 		),
 		name = "g"
 	)
-	private float resetDealtDamage (
+	private float resetDealtDamage(
 		float damage,
 		@Share(value = "dealtDamage") LocalFloatRef dealtDamage
 	) {
@@ -78,7 +78,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 			target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"
 		)
 	)
-	private boolean ignoreAttackWithTrainingWeapon (
+	private boolean ignoreAttackWithTrainingWeapon(
 		Entity instance,
 		DamageSource source,
 		float amount,
@@ -90,7 +90,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 	}
 
 	@ModifyVariable(method = "attack", at = @At("STORE"), name = "k")
-	private float increaseKnockbackWithTrainingWeapon (
+	private float increaseKnockbackWithTrainingWeapon(
 		float strength,
 		@Share(value = "dealtDamage") LocalFloatRef dealtDamage,
 		@Local(name = "h") float attackCooldown
@@ -106,7 +106,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 			target = "Lnet/minecraft/entity/LivingEntity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"
 		)
 	)
-	private boolean ignoreSweepAttackWithTrainingWeapon (
+	private boolean ignoreSweepAttackWithTrainingWeapon(
 		LivingEntity instance,
 		DamageSource source,
 		float amount,

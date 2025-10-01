@@ -33,6 +33,15 @@ public class RollingBlocks {
 			.pistonBehavior(PistonBehavior.BLOCK)
 	);
 
+	public static final Block ANCIENT_CONSTRUCTION = register("ancient_construction",
+		Block::new,
+		AbstractBlock.Settings.create()
+			.mapColor(MapColor.BLACK)
+			.requiresTool()
+			.strength(30.0F, 1200.0F)
+			.sounds(BlockSoundGroup.ANCIENT_DEBRIS)
+	);
+
 	public static final Block STRONGBOX = register("strongbox",
 		settings -> new StrongboxBlock(settings, () -> RollingBlockEntityTypes.STRONGBOX),
 		AbstractBlock.Settings.create()

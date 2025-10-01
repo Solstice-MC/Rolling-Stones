@@ -13,9 +13,12 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import org.solstice.rollingStones.RollingStones;
+import org.solstice.rollingStones.content.component.ItemAbilityComponent;
 import org.solstice.rollingStones.content.item.CursedSmithingStoneItem;
 import org.solstice.rollingStones.content.item.SmithingStoneItem;
 import org.solstice.rollingStones.content.item.TransformingSmithingStone;
+import org.solstice.rollingStones.content.itemAbility.ItemAbility;
+import org.solstice.rollingStones.content.itemAbility.TremoringAbility;
 
 import java.util.Map;
 import java.util.function.Function;
@@ -39,6 +42,30 @@ public class RollingItems {
 		settings -> new SwordItem(ToolMaterials.WOOD, settings),
 		new Item.Settings()
 			.attributeModifiers(BAMBOO_SWORD_ATTRIBUTES)
+	);
+
+	public static final Item ADAMANTITE_CHUNK = register("adamantite_chunk",
+		Item::new,
+		new Item.Settings()
+			.rarity(Rarity.UNCOMMON)
+	);
+
+	public static final Item ADAMANTITE_INGOT = register("adamantite_ingot",
+		Item::new,
+		new Item.Settings()
+			.rarity(Rarity.RARE)
+	);
+
+	public static final ItemAbilityComponent ADAMANTITE_ABILITY = new ItemAbilityComponent(
+		new TremoringAbility(new ItemAbility.Definition(6)),
+		0
+	);
+
+	public static final Item ADAMANTITE_SWORD = register("adamantite_sword",
+		settings -> new SwordItem(RollingToolMaterials.ADAMANTITE, settings),
+		new Item.Settings()
+			.attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.IRON, 3, -2.4F))
+			.component(RollingComponentTypes.ABILITY, ADAMANTITE_ABILITY)
 	);
 
     public static final Item SIMPLE_SMITHING_STONE = register("simple_smithing_stone",

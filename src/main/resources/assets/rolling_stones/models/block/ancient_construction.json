@@ -1,0 +1,8 @@
+{
+	"parent": "minecraft:block/cube_bottom_top",
+	"textures": {
+		"bottom": "rolling_stones:block/ancient_construction_bottom",
+		"side": "rolling_stones:block/ancient_construction_side",
+		"top": "rolling_stones:block/ancient_construction_top"
+	}
+}

@@ -5,6 +5,7 @@
 	"mixins": [
 		"AnvilScreenHandlerMixin",
 		"ArmorTrimComponentMixin",
+		"BambooBlockMixin",
 		"BowItemMixin",
 		"EnchantmentMixin",
 		"GrindstoneScreenHandlerMixin",
@@ -14,8 +15,7 @@
 		"MiningToolItemMixin",
 		"PiglinBrainMixin",
 		"SmithingScreenHandlerMixin",
-		"test.BambooBlockMixin",
-		"test.ItemStackMixin",
+		"itemAbility.ToolItemMixin",
 		"test.MobEntityMixin",
 		"test.PlayerEntityMixin"
 	],

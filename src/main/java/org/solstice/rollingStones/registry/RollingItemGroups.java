@@ -2,6 +2,7 @@ package org.solstice.rollingStones.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
@@ -28,6 +29,11 @@ public class RollingItemGroups {
 			entries.addAfter(Items.BARREL, RollingBlocks.STRONGBOX)
 		);
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(RollingItemGroups::addSmithingStones);
+
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
+			entries.addAfter(Blocks.ANCIENT_DEBRIS, RollingBlocks.ANCIENT_CONSTRUCTION);
+			entries.addAfter(Items.NETHERITE_INGOT, RollingItems.ADAMANTITE_CHUNK, RollingItems.ADAMANTITE_INGOT);
+		});
 	}
 
 	public static void addSmithingStones(FabricItemGroupEntries entries) {
